@@ -9,7 +9,9 @@ interface HomeViewProps {
 const HomeView: React.FunctionComponent<HomeViewProps> = (props) => {
     return (<div>ComponenteHome 
         <br />
-        <Buscador/>
+        <Buscador onSearch={(val)=>{
+            console.log(val)
+        }}/>
         <br />
         <ListaDePeliculas/>
     </div>);
