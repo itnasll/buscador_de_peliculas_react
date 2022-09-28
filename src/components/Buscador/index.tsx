@@ -15,7 +15,7 @@ const Buscador: React.FunctionComponent<BuscadorProps> = (props) => {
     const debounceValue = useDebounce<string | undefined>(value, 500)
 
     useEffect(() => {
-      if(debounceValue){
+      if(debounceValue && props.onSearch){
         props.onSearch(debounceValue)
       }
           }
