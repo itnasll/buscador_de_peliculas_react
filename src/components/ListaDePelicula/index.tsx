@@ -10,7 +10,7 @@ const ListaDePeliculas: React.FunctionComponent<ListaDePeliculasProps> = (props)
     return ( <div>ListadePeliculas
         <br />
         {props.peliculas.map(pelicula => {
-            return <PreviewPelicula pelicula={pelicula}/>
+            return <PreviewPelicula pelicula={pelicula}key={pelicula.imdbID} />
         })}
     </div> );
 }
