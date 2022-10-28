@@ -4,7 +4,7 @@ import ListaDePeliculas from "../../components/ListaDePelicula";
 import { ItemPelicula, resutadoBusquedaAItemPelicula } from "../../models";
 
 interface HomeViewProps {
-    
+    onSelectPelicula?: (peliculaId?: string) => void 
 }
  
 const HomeView: React.FunctionComponent<HomeViewProps> = (props) => {
@@ -29,6 +29,8 @@ const HomeView: React.FunctionComponent<HomeViewProps> = (props) => {
       
     }, [busqueda,setpeliculas])
     
+   
+
     const onSearchCallback=(query: string )=>{
         setbusqueda(query)
 
@@ -39,7 +41,7 @@ const HomeView: React.FunctionComponent<HomeViewProps> = (props) => {
         <br />
         <Buscador onSearch={onSearchCallback}/>
         <br />
-        <ListaDePeliculas peliculas={peliculas}/>
+        <ListaDePeliculas peliculas={peliculas} onSelectPelicula={props.onSelectPelicula}/>
     </div>);
 }
  
