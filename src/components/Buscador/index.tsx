@@ -1,3 +1,4 @@
+import TextField from "@mui/material/TextField"
 import React, { useEffect, useState } from "react"
 import useDebounce from "../../hooks/useDebounce"
 
@@ -22,7 +23,7 @@ const Buscador: React.FunctionComponent<BuscadorProps> = (props) => {
     , [debounceValue, props])
     
 
-    const onChange = (event:React.ChangeEvent<HTMLInputElement> | undefined) => {
+    const onChange = (event:React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> | undefined) => {
         if(!event){
            setvalue("")
             return
@@ -32,7 +33,10 @@ const Buscador: React.FunctionComponent<BuscadorProps> = (props) => {
         setvalue(event.target.value)
     }
     //usar UseDebounce para el buscador
-    return ( <div><input type="text" onChange={onChange} /></div> );
+    return ( <div>
+          <TextField id="filled-basic" label="Buscador" variant="filled" onChange={onChange}/>
+          {/* <input type="text" onChange={onChange} /> */}
+          </div> );
 }
  
 export default Buscador;
